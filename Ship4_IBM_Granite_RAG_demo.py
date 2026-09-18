@@ -1,4 +1,11 @@
 #!/usr/bin/env python3
+# ============================================================
+# Copyright (c) 2026 Evelyn Caro. All rights reserved.
+# A Mirror of My Becoming
+# https://evelynacaro.github.io
+# For licensing inquiries: evelyn.caro.cloud@gmail.com
+# ============================================================
+
 """Ship 4 — IBM Granite Agentic RAG — Demo Script"""
 import os
 from langchain_community.document_loaders import TextLoader
