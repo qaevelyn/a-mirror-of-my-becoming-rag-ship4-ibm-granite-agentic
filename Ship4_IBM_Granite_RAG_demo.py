@@ -25,7 +25,7 @@ print("Embeddings ready: nomic-embed-text")
 print("LLM ready: granite4.1:3b")
 
 PERSIST_DIR = "./chroma_db"
-SOURCE = "/Users/evelyn/Repos/Mirror-Project/MIRROR_LOG.md"
+SOURCE = "./data/CURATED_PUBLIC_DATA.md"
 
 if os.path.exists(PERSIST_DIR) and os.listdir(PERSIST_DIR):
     vector_store = Chroma(persist_directory=PERSIST_DIR, embedding_function=embeddings)
