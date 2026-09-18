@@ -70,7 +70,6 @@ agent_executor = AgentExecutor(agent=agent, tools=tools, verbose=False, handle_p
 
 queries = [
     "What is A Mirror of My Becoming?",
-    "How does A Mirror of My Becoming use RAG pipelines?",
 ]
 
 for query in queries:
