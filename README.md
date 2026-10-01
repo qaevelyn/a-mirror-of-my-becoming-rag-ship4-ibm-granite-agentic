@@ -1,4 +1,4 @@
-# Ship 4: IBM Granite Agentic RAG Pipeline
+# ship4 of the A Mirror of My Becoming fleet — Ship 4: IBM Granite Agentic RAG Pipeline
 
 **Built:** August 2026
 **Author:** Evelyn Caro
