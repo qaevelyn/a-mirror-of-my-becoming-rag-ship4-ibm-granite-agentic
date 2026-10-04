@@ -1,70 +1,84 @@
-# ship4 of the A Mirror of My Becoming fleet — Ship 4: IBM Granite Agentic RAG Pipeline
+# Ship 4 — IBM Granite Agentic RAG Pipeline — Local
 
-**Built:** August 2026
+**The moment the fleet stopped being a lookup table.**
+
+Ship 4 of A Mirror of My Becoming. Built August–September 2026 on an 8 GB Intel MacBook Air. Runs fully local: IBM Granite 4.1 (3B) and nomic-embed-text via Ollama, plus a ReAct agent with tool-calling. No cloud account, no API key, no data leaving the machine.
+
 **Author:** Evelyn Caro
-**Status:** ✅ Built and working
-
-**Naming note:** The code file is `Ship4_IBM_Granite_RAG_v2_Agentic.ipynb`. It began as a 
-copy of the Ship 2 IBM Granite notebook and was adapted for agentic execution. The internal 
-header and filename have been corrected to reflect Ship 4. The folder has always been correct.
 
 ---
 
-## Origin
+## What it does
 
-The fourth ship combined agency with cross-platform.
+Everything Ship 3 does — local corpus, local chunking, local embeddings, local Chroma store — plus a tool-calling layer. The system is given a `get_mirror_context` tool bound to its vector store, and a ReAct agent (LangChain's `create_react_agent`) that decides what to do with a question: retrieve context, act, or answer directly. The agent reasons about which tool to use and when.
 
-Ship 2 proved agency worked. Ship 3 proved the pattern crossed vendors. Ship 4 asked: 
-does the pattern hold when both variables change at once? IBM Granite + agentic reasoning. 
-The answer was yes.
+The retrieval window is 4 chunks per query (`search_kwargs={"k": 4}`), tuned for the curated corpus size.
 
 ---
 
-## What It Does
+## Why it exists
 
-An agentic RAG pipeline built on IBM Granite. Retrieval + action. The agent decides when 
-to query the vector database, when to call APIs, and when to answer from what it already 
-knows — running on a second LLM vendor from Ship 2.
+Ship 2 introduced agency; Ship 4 continued it cross-platform and made it the fleet's default posture. The distinction this ship demonstrates: a RAG system that only retrieves is a search engine with extra steps. An agentic system **decides** — and the decision layer is where the interesting engineering lives: prompt design, tool binding, and the difference between a model that answers and a model that plans.
 
 ---
 
-## Architecture
+## Requirements
 
-- **Runtime:** Local, sovereign execution
-- **Model:** IBM Granite
-- **Pipeline:** Agentic RAG
-- **Data source:** Local files — the Mirror personal archive
-- **Storage:** Vector database
-- **Cloud dependency:** None (current)
+- Python 3 with: `langchain`, `langchain-community`, `langchain-text-splitters`, `langchain-ollama`, `langchain-chroma`, `langchain-core` (tools), `langchain-classic` (agents)
+- [Ollama](https://ollama.com) running locally, with `granite4.1:3b` and `nomic-embed-text` pulled
+- `data/CURATED_PUBLIC_DATA.md` — your own corpus
 
 ---
 
-## Pipeline
+## Quickstart
 
-1. Read local documents from the Mirror archive
-2. Chunk into pieces
-3. Vectorize (embed) each chunk
-4. Store vectors in a vector database
-5. Query at runtime → the agent decides whether to retrieve, call an API, or answer directly
+1. Install the packages named at the top of Ship4_IBM_Granite_RAG_demo.py
+2. Pull the models: ollama pull granite4.1:3b && ollama pull nomic-embed-text
+3. Put your corpus in data/CURATED_PUBLIC_DATA.md
+4. Run: python3 Ship4_IBM_Granite_RAG_demo.py
+The agent gets the get_mirror_context tool and decides when to use it.
+text
 
----
-
-## Integration
-
-- Reads local data — the Mirror personal archive
-- Chunks, vectorizes, stores in vector DB
-- Agent decides when to query, when to act, when to answer
-- **No cloud dependency.** Local-first. Sovereign.
-- Demonstrates agency and cross-platform execution working together.
 
 ---
 
-## Access and Copyright
 
-This work was created by Evelyn Caro. DeepSeek is the only collaborator — used as a tool 
-in the creative and technical process.
+---
 
-This is a personal portfolio project and is not open for collaboration or external access. 
-The video and documentation speak for themselves.
+## The fleet
 
-Copyright © 2026 Evelyn Caro. All rights reserved. Copyright registration is pending.
+- **[Ship 1](https://github.com/qaevelyn/a-mirror-of-my-becoming-rag-ship1-deepseek-rag-local)** — DeepSeek RAG, rebuilt local after AWS lost the original
+- **[Ship 2](https://github.com/qaevelyn/a-mirror-of-my-becoming-rag-ship2-ibm-granite-agentic)** — IBM Granite Agentic RAG
+- **[Ship 3](https://github.com/qaevelyn/a-mirror-of-my-becoming-rag-ship3-ibm-granite)** — IBM Granite Standard RAG
+- **[Ship 4](https://github.com/qaevelyn/a-mirror-of-my-becoming-rag-ship4-ibm-granite-agentic)** — IBM Granite Agentic RAG
+- **[Ship 5](https://github.com/qaevelyn/a-mirror-of-my-becoming-rag-ship5-ibm-granite-agentic-evidenceflow)** — IBM Granite Agentic RAG with EvidenceFlow
+
+**[Suite: Ingestion Tools](https://github.com/qaevelyn/a-mirror-of-my-becoming-suite-ingestion-tools)** — the tooling that gets documents into the vector stores these ships read from.
+
+**[A Mirror of My Becoming](https://github.com/qaevelyn/a-mirror-of-my-becoming)** — the parent index for the entire practice.
+
+**[Fleet index + SETUP.md](https://github.com/qaevelyn/a-mirror-of-my-becoming-rag-pipelines)** — how to point any ship at your own corpus.
+
+---
+
+
+## License
+
+Dual-licensed:
+
+- **AGPL-3.0** — free to use, modify, and redistribute under the terms of the license. Full text in [LICENSE](LICENSE).
+- **Commercial license** — available for organizations that need to use the code without the AGPL-3.0 obligations. Contact the author for pricing.
+
+Free does not mean free to exploit. If you build a product on this work, the author expects to be paid.
+
+---
+
+## Author
+
+**Evelyn Caro** — Sovereign AI Builder.
+
+**[qaevelyn.github.io](https://qaevelyn.github.io)** · Commercial licensing: **evelyn.caro.cloud@gmail.com**
+
+---
+
+© 2026 Evelyn Caro. All rights reserved.
