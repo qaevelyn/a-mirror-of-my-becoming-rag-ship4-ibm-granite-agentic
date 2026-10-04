@@ -2,7 +2,7 @@
 
 **The moment the fleet stopped being a lookup table.**
 
-Ship 4 of A Mirror of My Becoming. Built August–September 2026 on an 8 GB Intel MacBook Air. Runs fully local: IBM Granite 4.1 (3B) and nomic-embed-text via Ollama, plus a ReAct agent with tool-calling. No cloud account, no API key, no data leaving the machine.
+Ship 4 of A Mirror of My Becoming™. Built August–September 2026 on an 8 GB Intel MacBook Air. Runs fully local: IBM Granite 4.1 (3B) and nomic-embed-text via Ollama, plus a ReAct agent with tool-calling. No cloud account, no API key, no data leaving the machine.
 
 **Author:** Evelyn Caro
 
@@ -55,7 +55,7 @@ text
 
 **[Suite: Ingestion Tools](https://github.com/qaevelyn/a-mirror-of-my-becoming-suite-ingestion-tools)** — the tooling that gets documents into the vector stores these ships read from.
 
-**[A Mirror of My Becoming](https://github.com/qaevelyn/a-mirror-of-my-becoming)** — the parent index for the entire practice.
+**[A Mirror of My Becoming™](https://github.com/qaevelyn/a-mirror-of-my-becoming)** — the parent index for the entire practice.
 
 **[Fleet index + SETUP.md](https://github.com/qaevelyn/a-mirror-of-my-becoming-rag-pipelines)** — how to point any ship at your own corpus.
 
